@@ -7,6 +7,10 @@ html, body {
   height: 100%;
 }
 
+body {
+  background: #c69;
+}
+
 .main {
   display: flex;
   // @media (max-width: $breakpoint--mobile) {

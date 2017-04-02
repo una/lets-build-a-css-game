@@ -1,0 +1,225 @@
+// Setting the colors we're syncing up with
+$pixel-color-map: (
+  'w': #fff,
+  'k': #000,
+  'o': transparent,
+  'p': #fdcaaa,
+  'a': #bc8e0c,
+  'l': #b5eaf7,
+  'v': #a0a0ef,
+  'b': #3782b5,
+  'g': #aaaaaa,
+  'n': #0d1959,
+  'd': #442233,
+  'r': #c69,
+  'c': #303515
+);
+
+// Size of the pixels
+$pixel-size: 8px !default;
+
+// Mario pixel art matrices!
+$pixel-art:(
+  tim: (
+    (o o o o o o o o o o k k k k k k k o o o o o o o)
+    (o o o o o o o o k k a a a a a a a k o k o o o o)
+    (o o o o o o o k a a a a a a a a a a k a k o o o)
+    (o o o o o k k a a p a a a a a a a a a a k o o o)
+    (o k k o k w w k a a p p p p p p a a a a k o o o)
+    (k w w k k w w k a p p p p p p p p a a a a k o o)
+    (k w w w k w w k p p p p p p p p p p a a a k o o)
+    (o k w w k k k k k p w w p p w w p p a k k o o o)
+    (k w w w k w w w k w k w p p w k w p a p p k o o)
+    (k w w w k w w w k w k w p p w k w p k p p k o o)
+    (k w w w w k k w k p p p p p p p p p p k p k o o)
+    (o k k w w w w k p p p p p a a a a p p k p k o o)
+    (o o o k k k k p k p a a a a a a w a p k k o o o)
+    (o o o o k p p p k a p w w w w w p a p k o o o o)
+    (o o o o k p p p l k p p a a p p p k k k o o o o)
+    (o o o o o k l l l v k p p p p k k l l k k o o o)
+    (o o o o o k l l l v v k p p k v v k l l l k o o)
+    (o o o o o o k l l l l v v k v v l k l k k p k o)
+    (o o o o o o o k l l l l l v l l l l k p p p k o)
+    (o o o o o o o k l l l l l v l l l l k p p p k o)
+    (o o o o o o o k l l l l l l l l l l k p p k o o)
+    (o o o o o o o k b l l l l l l l l l l k k o o o)
+    (o o o o o o k b b b b b b b b b b b b k o o o o)
+    (o o o o o o k b b b b b b b b b b b b k o o o o)
+    (o o o o o k b b b b b b b b b b b b b b k o o o)
+    (o o o o o k b b b b b k k k k b b b b b k o o o)
+    (o o o k k k b b b b k k k k k k b b b b k k k o)
+    (o o k k k k k k k k k k o o k k k k k k k k k k)
+    (o o o k k k k k k k k k o o k k k k k k k k k o)
+    (o o o o k k k k k k k o o o o k k k k k k k o o)
+  ),
+
+    tim--winking: (
+    (o o o o o o o o o o k k k k k k k o o o o o o o)
+    (o o o o o o o o k k a a a a a a a k o k o o o o)
+    (o o o o o o o k a a a a a a a a a a k a k o o o)
+    (o o o o o k k a a p a a a a a a a a a a k o o o)
+    (o k k o k w w k a a p p p p p p a a a a k o o o)
+    (k w w k k w w k a p p p p p p p p a a a a k o o)
+    (k w w w k w w k p p p p p p p p p p a a a k o o)
+    (o k w w k k k k k p p p p p w w p p a k k o o o)
+    (k w w w k w w w k p p p p p w k w p a p p k o o)
+    (k w w w k w w w k k k k p p w k w p k p p k o o)
+    (k w w w w k k w k p p p p p p p p p p k p k o o)
+    (o k k w w w w k p p p p p a a a a p p k p k o o)
+    (o o o k k k k p k p a a a a a a w a p k k o o o)
+    (o o o o k p p p k a p w w w w w p a p k o o o o)
+    (o o o o k p p p l k p p a a p p p k k k o o o o)
+    (o o o o o k l l l v k p p p p k k l l k k o o o)
+    (o o o o o k l l l v v k p p k v v k l l l k o o)
+    (o o o o o o k l l l l v v k v v l k l k k p k o)
+    (o o o o o o o k l l l l l v l l l l k p p p k o)
+    (o o o o o o o k l l l l l v l l l l k p p p k o)
+    (o o o o o o o k l l l l l l l l l l k p p k o o)
+    (o o o o o o o k b l l l l l l l l l l k k o o o)
+    (o o o o o o k b b b b b b b b b b b b k o o o o)
+    (o o o o o o k b b b b b b b b b b b b k o o o o)
+    (o o o o o k b b b b b b b b b b b b b b k o o o)
+    (o o o o o k b b b b b k k k k b b b b b k o o o)
+    (o o o k k k b b b b k k k k k k b b b b k k k o)
+    (o o k k k k k k k k k k o o k k k k k k k k k k)
+    (o o o k k k k k k k k k o o k k k k k k k k k o)
+    (o o o o k k k k k k k o o o o k k k k k k k o o)
+  ),
+
+  kevin: (
+    (o o o o o o o o o o k k k k k k o o o o o o o o)
+    (o o o o o o o o k k g g g g g g k k o o o o o o)
+    (o o o o o o o k g g g g g g g g g g k o o o o o)
+    (o o o o o k k g g g g g g g g g g g g k o o o o)
+    (o k k o k w w k g g k k k k k k g g g k o o o o)
+    (k w w k k w w k k k k k k k k k k k g g k o o o)
+    (k w w w k w w k k k k k k k k k k k k g k o o o)
+    (o k w w k k k k k k w w p p w w k k k k k o o o)
+    (k w w w k w w w k w k w p p w k w p k p p k o o)
+    (k w w w k w w w k w k w p p w k w p k p p k o o)
+    (k w w w w k k w k p p p p p p p p p p k p k o o)
+    (o k k w w w w k p p k k k k k k p p p k p k o o)
+    (o o o k k k k p k k k k k k k k k k p k k o o o)
+    (o o o o k p p p k k k p p p p p k k k k o o o o)
+    (o o o o k p p p w k p p k k p p p k k k o o o o)
+    (o o o o o k w w w w k p p p p k k w w k k o o o)
+    (o o o o o k w w w w w k k k k w w k w w w k o o)
+    (o o o o o o k w w w w w w w w w w k w k k p k o)
+    (o o o o o o o k w w w w w w w w w w k p p p k o)
+    (o o o o o o o k w w w w w w w w w w k p p p k o)
+    (o o o o o o o k w w w w w w w w w w k p p k o o)
+    (o o o o o o o k w w w w w w w w w w w k k o o o)
+    (o o o o o o k n n n n n n n n n n n n k o o o o)
+    (o o o o o o k n n n n n n n n n n n n k o o o o)
+    (o o o o o k n n n n n n n n n n n n n n k o o o)
+    (o o o o o k n n n n n k k k k n n n n n k o o o)
+    (o o o k k k n n n n k k k k k k n n n n k k k o)
+    (o o k k k k k k k k k k o o k k k k k k k k k k)
+    (o o o k k k k k k k k k o o k k k k k k k k k o)
+    (o o o o k k k k k k k o o o o k k k k k k k o o)
+  ),
+
+  kristina: (
+    (o o o o o o o o o o o o k k k k k o o o o o o o)
+    (o o o o o o o o k k k k d d d d d k k o o o o o)
+    (o o o o o o o k d d d d d d d d d d d k o o o o)
+    (o o o o o k k d d d d p p p p p d d d k o o o o)
+    (o k k o k w w k d p p p p p p p p d d d k o o o)
+    (k w w k k w w k d p p p p p p k k d d d d k k o)
+    (k w w w k w w k k k k p p p p p p d d d d d k o)
+    (o k w w k k k k k k w w p p w w k d d d d d k o)
+    (k w w w k w w w k w k w p p w k w d d d d d d k)
+    (k w w w k w w w k w k w p p w k w k d d d d k o)
+    (k w w w w k k w k p p p p p p p p p p d d k o o)
+    (o k k w w w w k p p p p p p p p p p p k p k o o)
+    (o o o k k k k k p p p p r r r r p p p k k o o o)
+    (o o o o k k k k k p p r r r r p p p p p o o o o)
+    (o o o o k k k k k k p p p p p p p k k k o o o o)
+    (o o o o o k k k k k k p p p p k k k k k k o o o)
+    (o o o o o k k k k k p p p p p p k k k k k k o o)
+    (o o o o o o k k k k k k k k k k k k k k k p k o)
+    (o o o o o o o k k k k k k k k k k k k p p p k o)
+    (o o o o o o o k k k k k k k k k k k k p p p k o)
+    (o o o o o o o k k k k k k k k k k k k p p k o o)
+    (o o o o o o o k k k k k k k k k k k k k k o o o)
+    (o o o o o o k c c c c c c c c c c c c k o o o o)
+    (o o o o o o k c c c c c c c c c c c c k o o o o)
+    (o o o o o k c c c c c c c c c c c c c c k o o o)
+    (o o o o o k c c c c c k k k k c c c c c k o o o)
+    (o o o k k c c c c c k k k k k k c c c c c k k o)
+    (o o k k k k k k k k k k o o k k k k k k k k k k)
+    (o o o k k k k k k k k k o o k k k k k k k k k o)
+    (o o o o k k k k k k k o o o o k k k k k k k o o)
+  )
+);
+
+// Function to read the matrix and pixelize it!
+@function pixelize($matrix, $size){
+    $l: length($matrix); // length of the entire
+    $sh: ''; // shadows list
+    $i: $l; // length of the line
+
+    // read through the length of the matrix and decide on the box shadow color and position
+    @for $i from 1 through $l{
+      $row: nth($matrix,$i); //
+
+      @for $j from 1 through length($row){
+          $item: nth($row,$j);
+
+          @if map-has-key($pixel-color-map, $item) {
+            $sh:  $sh + ($j*$size) + ' ' + ($i*$size) + ' ' + map-get($pixel-color-map, $item);
+          } @else {
+            @warn 'there is no color specified in "$pixel-color-map" for: "#{$item}"';
+          }
+
+        @if not ($j == length($row) and $i == $l) {
+          $sh: $sh + ',';
+        }
+      }
+    }
+
+    @return unquote($sh);
+}
+
+// Mixin to style each item
+@mixin style-item($matrix, $size){
+  position: relative; // pixels stack next to each other
+
+  // set width & height of icon based on size of pixels
+  width:($size * length(nth($matrix,1)));
+  height:($size * length($matrix));
+
+  &:after{
+    content: '';
+
+    // position everything from the top left corner
+    position: absolute;
+    top: (-$size);
+    left: (-$size);
+    width: $size;
+    height: $size;
+
+    // this is where we make the stitch
+    box-shadow: pixelize($matrix,$size);
+  }
+}
+
+.pixel-char{
+  list-style: none;
+  margin: 3em auto;
+  max-width: 800px;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+
+  li {
+    display: inline-block;
+    margin: 2em;
+  }
+
+   @each $key, $value in $pixel-art{
+    &--#{$key}{
+      @include style-item($value, $pixel-size);
+    }
+  }
+}
