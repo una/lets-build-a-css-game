@@ -2,18 +2,18 @@
   box-sizing: border-box;
 }
 
-html, body {
+html, body, ul{
+  font-family: 'open sans', serif;
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  text-align: center;
 }
 
 body {
   background: #c69;
-}
-
-.main {
-  display: flex;
-  // @media (max-width: $breakpoint--mobile) {
-  //   flex-direction: column;
-  // }
 }

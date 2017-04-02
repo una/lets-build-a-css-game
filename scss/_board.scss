@@ -1,0 +1,48 @@
+.game-board {
+  display: grid;
+  grid-gap: 1em;
+  list-style: none;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  list-style: none;
+  width: 60vw;
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.game-board-square {
+  // width: 300px;
+  // height: 300px;
+  background-color: lightblue;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .character {
+    // transform: scale(0.5);
+    // animation: move .5s ease-in-out alternate infinite;
+  }
+
+  .shield {
+    width: 100%;
+    height: 60%;
+    z-index: 2;
+    position: absolute;
+    bottom: 0; left: 0;
+    display: block;
+    background-color: maroon;
+    // maroon looks more brown than brown
+    // also gray vs darkgray
+    pointer-events: none;
+  }
+}
+
+// character movement
+@keyframes move {
+  0% {
+    transform: translateY(-30%);
+  }
+  50% {
+    transform: translateY(30%)
+  }
+}
