@@ -133,7 +133,7 @@ $pixel-art:(
     (k w w w w k k w k p p p p p p p p p p d d k o o)
     (o k k w w w w k p p p p p p p p p p p k p k o o)
     (o o o k k k k k p p p p r r r r p p p k k o o o)
-    (o o o o k k k k k p p r r r r p p p p p o o o o)
+    (o o o o k k k k k p p r r r r p p p k o o o o o)
     (o o o o k k k k k k p p p p p p p k k k o o o o)
     (o o o o o k k k k k k p p p p k k k k k k o o o)
     (o o o o o k k k k k p p p p p p k k k k k k o o)
@@ -156,33 +156,41 @@ $pixel-art:(
     (o o o o o o o o o o o o k k k k k o o o o o o o)
     (o o o o o o o o k k k k d d d d d k k o o o o o)
     (o o o o o o o k d d d d d d d d d d d k o o o o)
-    (o o o o o k k d d d d p p p p p d d d k o o o o)
-    (o k k o k w w k d p p p p p p p p d d d k o o o)
-    (k w w k k w w k d p p p p p p k k d d d d k k o)
-    (k w w w k w w k k k k p p p p p p d d d d d k o)
+    (o o o o o k k d d d p p d d d d d d d k o o o o)
+    (o k k o k w w k d p p p p d d d d d d d k o o o)
+    (k w w k k w w k d p p p p p p d d d d d d k o o)
+    (k w w w k w w k k k k p p p p p d d d d d d o o)
     (o k w w k k k k k k w w p p w w k d d d d d k o)
-    (k w w w k w w w k w k w p p w k w d d d d d d k)
-    (k w w w k w w w k w k w p p w k w k d d d d k o)
-    (k w w w w k k w k p p p p p p p p p p d d k o o)
-    (o k k w w w w k p p p p p p p p p p p k p k o o)
-    (o o o k k k k k p p p r r r r p p p d k k o o o)
-    (o o o o k k k k p p p p r r p p p p d d o o o o)
-    (o o o o k k k k k k p p p p p p p k k k o o o o)
-    (o o o o o k k k k k k p p p p k k k k k k o o o)
-    (o o o o o k k k k k p p p p p p k k k k k k o o)
-    (o o o o o o k k k k k k k k k k k k k k k p k o)
-    (o o o o o o o k k k k k k k k k k k k p p p k o)
-    (o o o o o o o k k k k k k k k k k k k p p p k o)
-    (o o o o o o o k k k k k k k k k k k k p p k o o)
-    (o o o o o o o k k k k k k k k k k k k k k o o o)
-    (o o o o o o k c c c c c c c c c c c c k o o o o)
-    (o o o o o o k c c c c c c c c c c c c k o o o o)
-    (o o o o o k c c c c c c c c c c c c c c k o o o)
-    (o o o o o k c c c c c k k k k c c c c c k o o o)
-    (o o o k k c c c c c k k k k k k c c c c c k k o)
+    (k w w w k w w w k w k w p p w k w d d d d d k o)
+    (k w w w k w w w k w k w p p w k w d d d d d k o)
+    (k w w w w k k w k p p p p p p p p p d d d d k o)
+    (o k k w w w w k p p p p p p p p p p d d d d k o)
+    (o o o k k k k k p p p r r r r p p p d d d d k o)
+    (o o o o k w w w p p p p r r p p p d d d d k o o)
+    (o o o o k w w w w p p p p p p p d d d d d o o o)
+    (o o o o o k w w w w k p p p p p d d d d d o o o)
+    (o o o o o k k w w w w k p p k d d d d d d k o o)
+    (o o o o o o k w w w w w k k d d d d d k w w k o)
+    (o o o o o o o k w g g g w k d d w w k w w w k o)
+    (o o o o o o o k w w g g w g w w w w k w w w k o)
+    (o o o o o o o k w w w w w g w w w w k w w k o o)
+    (o o o o o o o k g g g g g g g g g g g k k o o o)
+    (o o o o o o k w k w k w k w k w k w k k o o o o)
+    (o o o o o o k w k w k w k w k w k w k k o o o o)
+    (o o o o o k k w k w k w k w k w k w k w k o o o)
+    (o o o o o k k w k w k w k w k w k w k w k o o o)
+    (o o o k k w k w k w k w k w k w k w k w w k k o)
     (o o k k k k k k k k k k o o k k k k k k k k k k)
     (o o o k k k k k k k k k o o k k k k k k k k k o)
     (o o o o k k k k k k k o o o o k k k k k k k o o)
+  ),
+  heart: (
+    (o o r r o r r o o)
+    (o r r r r r r r o)
+    (o r r r r r r r o)
+    (o o r r r r r o o)
+    (o o o r r r o o o)
+    (o o o o r o o o o)
   )
 );
 
@@ -240,16 +248,6 @@ $pixel-art:(
 .pixel-char {
   list-style: none;
   display: grid;
-  // margin: 3em auto;
-  // max-width: 800px;
-  // padding: 0;
-  // text-align: center;
-  // width: 100%;
-
-  // li {
-  //   display: inline-block;
-  //   margin: 2em;
-  // }
 
    @each $key, $value in $pixel-art{
     &--#{$key}{

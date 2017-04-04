@@ -15,5 +15,18 @@ h1, h2 {
 }
 
 body {
-  background: #c69;
+  background: lightpink;
+}
+
+.pixel-char--heart::after {
+  // animation: pullsate .5s forwards infinite;
+}
+
+@keyframes pullsate {
+  from {
+    box-shadow: 4px 4px transparent, 8px 4px transparent, 12px 4px #c69, 16px 4px #c69, 20px 4px transparent, 24px 4px #c69, 28px 4px #c69, 32px 4px transparent, 36px 4px transparent, 4px 8px transparent, 8px 8px #c69, 12px 8px #c69, 16px 8px #c69, 20px 8px #c69, 24px 8px #c69, 28px 8px #c69, 32px 8px #c69, 36px 8px transparent, 4px 12px transparent, 8px 12px #c69, 12px 12px #c69, 16px 12px #c69, 20px 12px #c69, 24px 12px #c69, 28px 12px #c69, 32px 12px #c69, 36px 12px transparent, 4px 16px transparent, 8px 16px transparent, 12px 16px #c69, 16px 16px #c69, 20px 16px #c69, 24px 16px #c69, 28px 16px #c69, 32px 16px transparent, 36px 16px transparent, 4px 20px transparent, 8px 20px transparent, 12px 20px transparent, 16px 20px #c69, 20px 20px #c69, 24px 20px #c69, 28px 20px transparent, 32px 20px transparent, 36px 20px transparent, 4px 24px transparent, 8px 24px transparent, 12px 24px transparent, 16px 24px transparent, 20px 24px #c69, 24px 24px transparent, 28px 24px transparent, 32px 24px transparent, 36px 24px transparent;
+  }
+  to {
+    box-shadow: 4px 4px transparent, 8px 4px transparent, 12px 4px red, 16px 4px red, 20px 4px transparent, 24px 4px red, 28px 4px red, 32px 4px transparent, 36px 4px transparent, 4px 8px transparent, 8px 8px red, 12px 8px red, 16px 8px red, 20px 8px red, 24px 8px red, 28px 8px red, 32px 8px red, 36px 8px transparent, 4px 12px transparent, 8px 12px red, 12px 12px red, 16px 12px red, 20px 12px red, 24px 12px red, 28px 12px red, 32px 12px red, 36px 12px transparent, 4px 16px transparent, 8px 16px transparent, 12px 16px red, 16px 16px red, 20px 16px red, 24px 16px red, 28px 16px red, 32px 16px transparent, 36px 16px transparent, 4px 20px transparent, 8px 20px transparent, 12px 20px transparent, 16px 20px red, 20px 20px red, 24px 20px red, 28px 20px transparent, 32px 20px transparent, 36px 20px transparent, 4px 24px transparent, 8px 24px transparent, 12px 24px transparent, 16px 24px transparent, 20px 24px red, 24px 24px transparent, 28px 24px transparent, 32px 24px transparent, 36px 24px transparent;
+  }
 }

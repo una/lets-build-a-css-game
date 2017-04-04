@@ -1,0 +1,91 @@
+.game-area {
+  counter-reset: game;
+}
+
+.click-area {
+  position: absolute;
+  display: block;
+  top: 10px;
+  width: 30%;
+  height: 30%;
+  z-index: 3;
+  // outline: 1px solid red;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: grab;
+
+  &:active,
+  &:focus {
+    border: none;
+  }
+
+  &:checked {
+    pointer-events: none;
+    animation: none;
+
+    + div {
+      filter: grayscale(1) opacity(.75);
+      opacity: 0.5;
+      animation: none;
+    }
+
+    @extend .pixel-char--heart;
+
+    &:after {
+      // content: '+1!';
+      // font-weight: 800;
+      // font-size: 4em;
+      // margin: -40px 0 20px;
+      display: block;
+    }
+  }
+}
+
+.click-area:checked {
+  counter-increment: game;
+}
+
+.score {
+  position: relative;
+  display: block;
+  z-index: 10;
+  animation: score .5s forwards;
+  animation-delay: 5.25s;
+}
+
+.score-val::after {
+  content: counter(game);
+}
+
+.stopper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  background: cyan;
+  z-index: 6;
+  animation: stopper .5s forwards;
+  animation-delay: 5s;
+  transform: translateY(-100vh);
+}
+
+@keyframes stopper {
+  from {
+    transform: translateY(-100vh);
+  }
+  to {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes score {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50vh);
+  }
+}
