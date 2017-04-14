@@ -53,39 +53,6 @@ $pixel-art:(
     (o o o o k k k k k k k o o o o k k k k k k k o o)
   ),
 
-    tim--winking: (
-    (o o o o o o o o o o k k k k k k k o o o o o o o)
-    (o o o o o o o o k k a a a a a a a k o k o o o o)
-    (o o o o o o o k a a a a a a a a a a k a k o o o)
-    (o o o o o k k a a p a a a a a a a a a a k o o o)
-    (o k k o k w w k a a p p p p p p a a a a k o o o)
-    (k w w k k w w k a p p p p p p p p a a a a k o o)
-    (k w w w k w w k p p p p p p p p p p a a a k o o)
-    (o k w w k k k k k p p p p p w w p p a k k o o o)
-    (k w w w k w w w k p p p p p w k w p a p p k o o)
-    (k w w w k w w w k k k k p p w k w p k p p k o o)
-    (k w w w w k k w k p p p p p p p p p p k p k o o)
-    (o k k w w w w k p p p p p a a a a p p k p k o o)
-    (o o o k k k k p k p a a a a a a w a p k k o o o)
-    (o o o o k p p p k a p w w w w w p a p k o o o o)
-    (o o o o k p p p l k p p a a p p p k k k o o o o)
-    (o o o o o k l l l v k p p p p k k l l k k o o o)
-    (o o o o o k l l l v v k p p k v v k l l l k o o)
-    (o o o o o o k l l l l v v k v v l k l k k p k o)
-    (o o o o o o o k l l l l l v l l l l k p p p k o)
-    (o o o o o o o k l l l l l v l l l l k p p p k o)
-    (o o o o o o o k l l l l l l l l l l k p p k o o)
-    (o o o o o o o k b l l l l l l l l l l k k o o o)
-    (o o o o o o k b b b b b b b b b b b b k o o o o)
-    (o o o o o o k b b b b b b b b b b b b k o o o o)
-    (o o o o o k b b b b b b b b b b b b b b k o o o)
-    (o o o o o k b b b b b k k k k b b b b b k o o o)
-    (o o o k k k b b b b k k k k k k b b b b k k k o)
-    (o o k k k k k k k k k k o o k k k k k k k k k k)
-    (o o o k k k k k k k k k o o k k k k k k k k k o)
-    (o o o o k k k k k k k o o o o k k k k k k k o o)
-  ),
-
   kevin: (
     (o o o o o o o o o o k k k k k k o o o o o o o o)
     (o o o o o o o o k k g g g g g g k k o o o o o o)
@@ -196,24 +163,23 @@ $pixel-art:(
 
 // Function to read the matrix and pixelize it!
 @function pixelize($matrix, $size){
-    $l: length($matrix); // length of the entire
+    $l: length($matrix); // length of the entire matrix
     $sh: ''; // shadows list
-    $i: $l; // length of the line
 
     // read through the length of the matrix and decide on the box shadow color and position
-    @for $i from 1 through $l{
-      $row: nth($matrix,$i); //
+    @for $row from 1 through $l{
+      $row-num: nth($matrix,$row); //
 
-      @for $j from 1 through length($row){
-          $item: nth($row,$j);
+      @for $col from 1 through length($row-num){
+          $dot: nth($row-num,$col);
 
-          @if map-has-key($pixel-color-map, $item) {
-            $sh:  $sh + ($j*$size) + ' ' + ($i*$size) + ' ' + map-get($pixel-color-map, $item);
+          @if map-has-key($pixel-color-map, $dot) {
+            $sh:  $sh + ($col*$size) + ' ' + ($row*$size) + ' ' + map-get($pixel-color-map, $dot);
           } @else {
-            @warn 'there is no color specified in "$pixel-color-map" for: "#{$item}"';
+            @warn 'there is no color specified in "$pixel-color-map" for: "#{$dot}"';
           }
 
-        @if not ($j == length($row) and $i == $l) {
+        @if not ($col == length($row-num) and $row == $l) {
           $sh: $sh + ',';
         }
       }
