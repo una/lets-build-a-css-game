@@ -1,5 +1,5 @@
 // Setting the colors we're syncing up with
-$pixel-color-map: (
+$colors: (
   'w': #fff,
   'k': #000,
   'o': transparent,
@@ -150,15 +150,69 @@ $pixel-art:(
     (o o k k k k k k k k k k o o k k k k k k k k k k)
     (o o o k k k k k k k k k o o k k k k k k k k k o)
     (o o o o k k k k k k k o o o o k k k k k k k o o)
+  ),
+  heart: (
+    (o o r r o r r o o)
+    (o r r r r r r r o)
+    (o r r r r r r r o)
+    (o o r r r r r o o)
+    (o o o r r r o o o)
+    (o o o o r o o o o)
   )
 );
 
 // Function to read the matrix and pixelize it!
 @function pixelize($matrix, $size){
+    $l: length($matrix); // length of the entire matrix
+    $sh: ''; // shadows list
 
+    // read through the length of the matrix and decide on the box shadow color and position
+    @for $row from 1 through $l{
+      $row-num: nth($matrix,$row); //
+
+      @for $col from 1 through length($row-num){
+        $dot: nth($row-num,$col);
+
+        $sh:  $sh + ($col*$size) + ' ' + ($row*$size) + ' ' + map-get($colors, $dot);
+      
+        @if not ($col == length($row-num) and $row == $l) {
+          $sh: $sh + ',';
+        }
+      }
+    }
+
+    @return unquote($sh);
 }
 
 // Mixin to style each item
 @mixin style-item($matrix, $size){
+  position: relative; // chars stack next to each other
 
+  // set width & height of icon based on size of pixels
+  width:($size * length(nth($matrix,1)));
+  height:($size * length($matrix));
+
+  &:after{
+    content: '';
+
+    // position everything from the top left corner
+    position: absolute;
+    top: (-$size);
+    left: (-$size);
+    width: $size;
+    height: $size;
+
+    // this is where we make the stitch
+    box-shadow: pixelize($matrix,$size);
+  }
+}
+
+.pixelized {
+  list-style: none;
+
+   @each $key, $value in $pixel-art{
+    &--#{$key}{
+      @include style-item($value, $pixel-size);
+    }
+  }
 }
