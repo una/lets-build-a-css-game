@@ -2,13 +2,18 @@
   box-sizing: border-box;
 }
 
-html, body, ul{
-  font-family: 'open sans', serif;
+html, 
+body, {
+  font-family: 'Open Sans', sans-serif;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+}
+
+ul, 
+li {
+  position: relative;
 }
 
 h1, h2 {
@@ -16,5 +21,5 @@ h1, h2 {
 }
 
 body {
-  background: lightpink;
+  background: #dda0dd;
 }
