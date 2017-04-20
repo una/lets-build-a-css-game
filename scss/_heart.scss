@@ -1,0 +1,21 @@
+
+// Color Map
+$colors: (
+);
+
+// Size of the pixels
+$pixel-size: 10px !default;
+
+// Mario pixel art matrices!
+$pixel-art:(
+);
+
+// Function to read the matrix and pixelize it!
+@function pixelize($matrix, $size){
+
+}
+
+// Mixin to style each item
+@mixin style-item($matrix, $size){
+  
+}

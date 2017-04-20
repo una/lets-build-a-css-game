@@ -163,10 +163,9 @@ $pixel-art:(
 
 // Function to read the matrix and pixelize it!
 @function pixelize($matrix, $size){
-    $l: length($matrix); // length of the entire matrix
-    $sh: ''; // shadows list
+    $l: length($matrix);
+    $sh: '';
 
-    // read through the length of the matrix and decide on the box shadow color and position
     @for $row from 1 through $l{
       $row-num: nth($matrix,$row); //
 
@@ -186,23 +185,16 @@ $pixel-art:(
 
 // Mixin to style each item
 @mixin style-item($matrix, $size){
-  position: relative; // chars stack next to each other
-
-  // set width & height of icon based on size of pixels
   width:($size * length(nth($matrix,1)));
   height:($size * length($matrix));
 
   &:after{
     content: '';
-
-    // position everything from the top left corner
     position: absolute;
     top: (-$size);
     left: (-$size);
     width: $size;
     height: $size;
-
-    // this is where we make the stitch
     box-shadow: pixelize($matrix,$size);
   }
 }
