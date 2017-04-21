@@ -4,9 +4,8 @@ $colors: (
 );
 
 // Size of the pixels
-$pixel-size: 10px !default;
+$size: 10px !default;
 
-// Mario pixel art matrices!
 $pixel-art:(
 );
 
@@ -20,6 +19,6 @@ $pixel-art:(
   
 }
 
-.pixelized {
+.pixelized--heart {
   
 }
