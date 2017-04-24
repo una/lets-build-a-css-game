@@ -1,24 +1,69 @@
 
 // Color Map
 $colors: (
+  'o': transparent,
+  'r': red
 );
 
 // Size of the pixels
-$size: 10px !default;
+$size: 30px !default;
 
 $pixel-art:(
+  heart: 
+    (o o r r o r r o o)
+    (o r r r r r r r o)
+    (o r r r r r r r o)
+    (o o r r r r r o o)
+    (o o o r r r o o o)
+    (o o o o r o o o o)
 );
 
 // Function to read the matrix and pixelize it!
+// Function to read the matrix and pixelize it!
 @function pixelize($matrix, $size){
+    $l: length($matrix);
+    $sh: '';
 
+    @for $row from 1 through $l{
+      $row-num: nth($matrix,$row); //
+
+      @for $col from 1 through length($row-num){
+        $dot: nth($row-num,$col);
+
+        $sh:  $sh + ($col*$size) + ' ' + ($row*$size) + ' ' + map-get($colors, $dot);
+      
+        @if not ($col == length($row-num) and $row == $l) {
+          $sh: $sh + ',';
+        }
+      }
+    }
+
+    @return unquote($sh);
 }
+
 
 // Mixin to style each item
-@mixin style-item($matrix, $size){
-  
+@mixin style-item($matrix, $size) {
+    position: relative;
+    width: $size*length(nth($matrix,1));
+    height: $size*length($matrix);
+    outline: 1px solid;
+
+    &::after {
+    content: '';
+    position: absolute;
+    top: -$size;
+    left: -$size;
+    height: $size;
+    width: $size;
+    box-shadow: pixelize($matrix, $size)
+  }
 }
 
-.pixelized--heart {
-  
+.pixelized {
+  @each $key, $value in $pixel-art {
+    &--#{$key} {
+      @include style-item($value, $size);
+    }
+  }
 }

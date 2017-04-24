@@ -1,0 +1,40 @@
+ul {
+  display: grid;
+  grid-template: 1fr 1fr 1fr/ 1fr 1fr 1fr;
+  width: 80vw;
+  height: 70vh;
+  margin:0 auto;
+  grid-gap: 20px;
+
+  li {
+    background: dodgerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.character,
+.click-area {
+  animation: move 0.5s infinite forwards alternate;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(-25px);
+  }
+  50% {
+    transform: translateY(25px);
+  }
+}
+
+@for $i from 1 through 9 {
+  $speed: random()*0.5 + 's';
+
+  li:nth-child(#{$i}) {
+    .character,
+    .click-area {
+      animation-duration: #{$speed};
+    }
+  }  
+}
