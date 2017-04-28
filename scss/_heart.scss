@@ -58,6 +58,10 @@ $pixel-art:(
   }
 }
 
-.pixelized--heart {
-  @include style-item(map-get($pixel-art, heart), $size)
+.pixelized {
+  @each $key, $value in $pixel-art {
+    &--#{$key} {
+      @include style-item($value, $size)
+    }
+  }
 }
