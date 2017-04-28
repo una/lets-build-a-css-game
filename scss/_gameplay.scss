@@ -1,0 +1,16 @@
+.click-area {
+  position: absolute;
+  display: block;
+  outline: 1px solid red;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  left: -5px;
+  appearance: none;
+  cursor: grab;
+  z-index: 2;
+
+  &:checked {
+    background: yellow;
+  }
+}
