@@ -1,0 +1,27 @@
+.game-area {
+  display: grid;
+  grid-template: 1fr 1fr 1fr/ 1fr 1fr 1fr;
+  list-style: none;
+  grid-gap: 20px;
+  width: 80vw;
+  height: 70vh;
+  margin: 0 auto;
+
+  li {
+    background: dodgerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.shield {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  z-index: 4;
+  display: block;
+  background: navy;
+  bottom: 0;
+  left: 0;
+}
