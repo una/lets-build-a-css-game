@@ -25,3 +25,28 @@
   bottom: 0;
   left: 0;
 }
+
+.character,
+.click-area {
+  animation: move .5s infinite forwards alternate;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(-25px);
+  }
+  50% {
+    transform: translateY(25px);
+  }
+}
+
+@for $i from 1 through 9 {
+  $speed: random()*.5 + 's';
+
+  li:nth-child(#{$i}) {
+    .character,
+    .click-area {
+      animation-duration: #{$speed};
+    }
+  }
+}
