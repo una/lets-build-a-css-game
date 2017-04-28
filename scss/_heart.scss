@@ -42,10 +42,10 @@ $pixel-art:(
 
 // Mixin to style each item
 @mixin style-item($matrix, $size){
-  
-}
+  width: $size*length(nth($matrix,1));
+  height: $size*length($matrix);
+  position: relative;
 
-.pixelized--heart {
   &::after {
     content: '';
     position: absolute;
@@ -53,6 +53,11 @@ $pixel-art:(
     left: -$size;
     width: $size;
     height: $size;
-    box-shadow: pixelize(map-get($pixel-art, heart), $size);
+    box-shadow: pixelize($matrix, $size);
+
   }
+}
+
+.pixelized--heart {
+  @include style-item(map-get($pixel-art, heart), $size)
 }
