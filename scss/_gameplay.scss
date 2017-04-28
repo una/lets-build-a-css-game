@@ -21,3 +21,43 @@
 .score::after {
   content: counter(game);
 }
+
+.stopper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0; left: 0;
+  background: cyan;
+  z-index: 6;
+  text-align: center;
+  transform: translateY(-100vh);
+
+  animation: stopper .5s forwards;
+  animation-delay: 5s;
+}
+
+@keyframes stopper {
+  from {
+    transform: translateY(-100vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes score {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50vh);
+  }
+}
+
+h2 {
+  z-index: 10;
+  display: block;
+  position: relative;
+  animation: score .5s forwards;
+  animation-delay: 5.25s;
+}
