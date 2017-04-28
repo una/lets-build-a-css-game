@@ -14,3 +14,15 @@
     background: yellow;
   }
 }
+
+.game-area {
+  counter-reset: game;
+}
+
+.click-area:checked {
+  counter-increment: game;
+}
+
+.score::after {
+  content: counter(game);
+}
