@@ -61,3 +61,21 @@ h2 {
   animation: score .5s forwards;
   animation-delay: 5.25s;
 }
+
+.click-area {
+  &:checked {
+    animation: none;
+    pointer-events: none;
+
+    + div {
+      filter: grayscale(1);
+      animation: none;
+    }
+
+    &::after {
+      display: block;
+    }
+
+    @extend .pixelized--love;
+  }
+}
