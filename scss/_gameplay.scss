@@ -1,0 +1,23 @@
+.click-area {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 3;
+  display: block;
+  top: 10px;
+  left: -5px;
+  appearance: none;
+  cursor: grab;
+}
+
+.game-area {
+  counter-reset: game;
+}
+
+.score::after {
+  content: counter(game);
+}
+
+.click-area:checked {
+  counter-increment: game;
+}

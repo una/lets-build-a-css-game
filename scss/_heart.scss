@@ -1,23 +1,66 @@
-// Color Map
-$colors: (
-);
+// // Color Map
+// $colors: (
+//   'o': transparent,
+//   'r': red
+// );
 
-// Size of the pixels
-$size: 10px !default;
+// // Size of the pixels
+// $size: 20px !default;
 
-$pixel-art:(
-);
+// $pixel-art:(
+//   heart: (
+//     (o o r r o r r o o)
+//     (o r r r r r r r o)
+//     (o r r r r r r r o)
+//     (o o r r r r r o o)
+//     (o o o r r r o o o)
+//     (o o o o r o o o o)
+//   )
+// );
 
-// Function to read the matrix and pixelize it!
-@function pixelize($matrix, $size){
+// // Function to read the matrix and pixelize it!
+// @function pixelize($matrix, $size){
+//   $rows: length($matrix);
+//   $sh: '';
 
-}
+//   @for $row from 1 through $rows {
+//     $row-num: nth($matrix, $row);
 
-// Mixin to style each item
-@mixin style-item($matrix, $size){
-  
-}
+//     @for $col from 1 through length($row-num) {
+//       $dot: nth($row-num, $col);
 
-.pixelized--heart {
-  
-}
+//       $sh: $sh + ($size*$col) + ' ' + ($size*$row) + ' ' + map-get($colors, $dot);
+
+//       @if not($col == length($row-num) and $row == $rows) {
+//         $sh: $sh + ',';
+//       }
+//     }
+//   }
+//   @return unquote($sh);
+// }
+
+// // Mixin to style each item
+// @mixin style-item($matrix, $size){
+//   outline: 1px solid;
+//   position: relative;
+//   height: $size*length($matrix);
+//   width: $size*length(nth($matrix,1));
+
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     height: $size;
+//     width: $size;
+//     top: -$size;
+//     left: -$size;
+//     box-shadow: pixelize($matrix, $size);
+//   }
+// }
+
+// .pixelized {
+//   @each $key, $value in $pixel-art {
+//     &--#{$key} {
+//       @include style-item($value, $size);
+//     }
+//   }
+// }
